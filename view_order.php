@@ -48,7 +48,7 @@ if (!$_SESSION["UserID"]){  //check session
     </div>
     <div class="sidebar-wrapper">
     	<ul class="nav">
-    		<li class="active">
+    		<li>
     			<a href="admin_home.php">
     				<i class="material-icons">dashboard</i>
     				<p>หน้าแรก</p>
@@ -126,7 +126,7 @@ if (!$_SESSION["UserID"]){  //check session
     					<span class="icon-bar"></span>
     					<span class="icon-bar"></span>
     				</button>
-    				<a class="navbar-brand" href="admin_event_zone.php"> จอง-โซน</a>
+    				<a class="navbar-brand" href="view_order.php">ใบสั่งซื้อ</a>
     			</div>
     			<div class="collapse navbar-collapse">
     				<ul class="nav navbar-nav navbar-right">
@@ -182,133 +182,160 @@ if (!$_SESSION["UserID"]){  //check session
     							$query = mysqli_query($con,$sql);
 
     							$result = mysqli_fetch_array($query,MYSQLI_ASSOC); 
-                        
+                                
                                 ?>
 
-    							<div class="container">
-    								<div class="row">
-    									<div class="column">
-    										<b></b>
-    										<br>
+                                <div class="container">
+                                    <div class="row">
+                                       <div class="column">
+                                         
+                                          <br><b> ข้อมูลลูกค้า</b>
+                                          <br> <b>ชื่อ-นามสกุล :</b><?php echo $result["name"],$result["lname"]?>
+                                          <br> <b>เบอร์โทรศัพท์ :</b><?php echo $result["tel"]?>
+                                          <br> <b>อีเมล์ :</b><?php echo $result["email"]?>
+                                      </div>
+                                      <div class="column">
+                                          <center>
 
-    										<br>
-    										<br>
-    										<br>
-    										<br>
-    										<br><b> ข้อมูลลูกค้า</b>
-    										<br> <b>ชื่อ-นามสกุล :</b><?php echo $result["name"],$result["lname"]?>
-    										<br> <b>เบอร์โทรศัพท์ :</b><?php echo $result["tel"]?>
-    										<br> <b>อีเมล์ :</b><?php echo $result["email"]?>
-    									</div>
-    									<div class="column">
-    										<center>
+                                             <h4>ใบสั่งซือ</h4>
+                                         </center>
+                                     </div>
+                                     <div class="column" >
+                                      <b>เลขที่ใบสั่งซื้อ <?php echo $result["booking_id"]?></b><br>
+                                      <b>วัน/เดือน/ปี :</b> <?php echo $result["booking_date"]?>
+                                  </div>				
+                              </div>
+                          </div>
 
-    											<h4>ใบสั่งซือ</h4>
-    										</center>
-    									</div>
-    									<div class="column" >
-    										<b>เลขที่ใบสั่งซื้อ <?php echo $result["booking_id"]?></b><br>
-    										<b>วัน/เดือน/ปี :</b> <?php echo $result["booking_date"]?>
-    									</div>				
-    								</div>
-    							</div>
+                      </head>
+                      <body>
+                         <div class="card-content">
+                            <table class="table ">
+                               <?php
 
-    						</head>
-    						<body>
-    							<div class="card-content">
-    								<table class="table ">
-    									<?php
+                               if(!isset($_SESSION["intLine"]))
+                               {
+                                  echo "ไม่มีคำสั่งซื้อ";
+                                  exit();
+                              }
 
-    									if(!isset($_SESSION["intLine"]))
-    									{
-    										echo "ไม่มีคำสั่งซื้อ";
-    										exit();
-    									}
+                              require 'connect.php';
 
-    									require 'connect.php';
+                              ?> 
 
-    									?> 
-
-    									<body>
-    										<div class="container">          
-    											<table class="table table-bordered">
-    												<thead>
-    													<tr>
-    														<th>ชื่อสินค้า</th>
-    														<th>สี</th>
-    														<th>ขนาด</th>
-    														<th>จำนวน</th>
-    														<th>ราคาสินค้าต่อหน่วย</th>
-    														<th>ราคารวม</th>
-    													</tr>
-    												</thead>
+                              <body>
+                                  <div class="container">          
+                                     <table class="table table-bordered">
+                                        <thead>
+                                           <tr>
+                                              <th>ชื่อบูธ</th>
+                                              <th>ราคา</th>
+                                              <th>ขนาด</th>
+                                              <th>จำนวน</th>
+                                              >
+                                              <th>ราคารวม</th>
+                                          </tr>
+                                      </thead>
 
 
-    													<tr>
-    														xxx
-    															</tr>
-
-    														</tbody>
-    													</table>
-    													<table class="table ">
-    														<thead>
-    															<tr>
-    																<th>คิดเป็นจำนวนเงิน
-    																	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    																</th>
-    																<th>xxxx</th>
-    															</tr>
-    															<tr >
-    																<th>ภาษีมูลค่าเพิ่ม(7%)</th>
-
-    																<th>xxxx</th>
-    															</tr>
-    															<tr>
-    																<th>รวมเงินทั้งหมด
-    																	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    																</th>
-    																
-    																<th>xxxx</th>
-    															</tr>
-    														</thead>
-
-    													</table>
-    										
-    												</div>
-
-    											</body>
-    											<footer>
-    												<center>
-    													<b>ติดต่อ</b>
-    													<p>ที่อยู่: ตำบล คอหงส์ อำเภอ หาดใหญ่ สงขลา 90110 </p>
-    													<p>โทรศัพท์: 074 289 900</p>
-    												</center>
-      
+                                      <?php
+                                      $Total = 0;
+                                      $SumTotal = 0;
+                                      $vat = 7;
 
 
-    											</body>
+                                      for($i=0;$i<=(int)$_SESSION["intLine"];$i++)
+                                      {
+                                       if($_SESSION["strBooth_id"][$i] != "")
+                                       {
+                                          $sql = "SELECT * FROM booths WHERE booth_id = '".$_SESSION["strBooth_id"][$i]."' ";
+                                          $query = mysqli_query($con,$sql);
 
 
-    											<!--   Core JS Files   -->
-    											<script src="js/m/jquery-3.2.1.min.js" type="text/javascript"></script>
-    											<script src="js/m/bootstrap.min.js" type="text/javascript"></script>
-    											<script src="js/m/material.min.js" type="text/javascript"></script>
-    											<!--  Charts Plugin -->
-    											<script src="js/m/chartist.min.js"></script>
-    											<!--  Dynamic Elements plugin -->
-    											<script src="js/m/arrive.min.js"></script>
-    											<!--  PerfectScrollbar Library -->
-    											<script src="js/m/perfect-scrollbar.jquery.min.js"></script>
-    											<!--  Notifications Plugin    -->
-    											<script src="js/m/bootstrap-notify.js"></script>
-    											<!--  Google Maps Plugin    -->
-    											<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    											<!-- Material Dashboard javascript methods -->
-    											<script src="js/m/material-dashboard.js?v=1.2.0"></script>
-    											<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-    											<script src="js/m/demo.js"></script>
-    											<script type="text/javascript">
-    												$(document).ready(function () {
+                                          $result = $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
+                                          $Total = $_SESSION["strQty"][$i] * $result["price"];
+                                          $SumTotal = $SumTotal + $Total;
+                                          ?>
+                                          <tr>
+
+                                            <td><?=$result["b_name"];?></td>
+                                            <td><?=$result["price"];?></td>
+                                            <td><?=$result["size"];?></td>
+                                            <td><?=$_SESSION["strQty"][$i];?></td>
+                                            <td><?=number_format($Total,2);?></td>
+                                            <!--  <td><?=$_SESSION["strBooth_id"][$i];?></td> -->
+<!--                                             <td><input type='hidden' name='booth_id' value='<?=$_SESSION["strBooth_id"][$i];?>'></td>
+                                            <td><input type='hidden' name='status' value='w'></td> -->
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <table class="table ">
+                          <thead>
+                             <tr>
+                                 
+                                <th>คิดเป็นจำนวนเงิน
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              </th>
+                              <th><?php echo number_format($SumTotal,2);?></th>
+                          </tr>
+                          <tr >
+                            <th>ภาษีมูลค่าเพิ่ม(7%)</th>
+
+                            <th><?php 
+                            $sumvat = ($SumTotal*$vat)/100;
+                            echo number_format($sumvat);
+                            ?></th>
+                        </tr>
+                        <tr>
+                            <th>รวมเงินทั้งหมด
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </th>
+                          <?php $sum = $SumTotal+$sumvat; ?>
+                          <th><?php echo number_format($sum);?></th>
+                      </tr>
+                  </thead>
+
+              </table>
+              
+          </div>
+
+      </body>
+      <footer>
+        <center>
+           <b>ติดต่อ</b>
+           <p>ที่อยู่: ตำบล คอหงส์ อำเภอ หาดใหญ่ สงขลา 90110 </p>
+           <p>โทรศัพท์: 074 289 900</p>
+       </center>
+       
+
+
+   </body>
+
+
+   <!--   Core JS Files   -->
+   <script src="js/m/jquery-3.2.1.min.js" type="text/javascript"></script>
+   <script src="js/m/bootstrap.min.js" type="text/javascript"></script>
+   <script src="js/m/material.min.js" type="text/javascript"></script>
+   <!--  Charts Plugin -->
+   <script src="js/m/chartist.min.js"></script>
+   <!--  Dynamic Elements plugin -->
+   <script src="js/m/arrive.min.js"></script>
+   <!--  PerfectScrollbar Library -->
+   <script src="js/m/perfect-scrollbar.jquery.min.js"></script>
+   <!--  Notifications Plugin    -->
+   <script src="js/m/bootstrap-notify.js"></script>
+   <!--  Google Maps Plugin    -->
+   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+   <!-- Material Dashboard javascript methods -->
+   <script src="js/m/material-dashboard.js?v=1.2.0"></script>
+   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+   <script src="js/m/demo.js"></script>
+   <script type="text/javascript">
+    $(document).ready(function () {
 
             // Javascript method's body can be found in assets/js/demos.js
             demo.initDashboardPageCharts();

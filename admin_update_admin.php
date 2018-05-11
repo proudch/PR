@@ -19,7 +19,6 @@ include_once 'connect.php';
 
 
 
-
     $sql = "UPDATE admins SET 
             name = '".$_POST["name"]."' ,
             tel = '".$_POST["tel"]."' ,

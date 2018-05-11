@@ -181,7 +181,13 @@ if (!$_SESSION["UserID"]){  //check session
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
+                        </li>
 
 
                         <li class="dropdown">

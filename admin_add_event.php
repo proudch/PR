@@ -38,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             {
             echo "<script>";
             echo "alert(\"เพิ่มงานนิทรรศการสำเร็จ\");";
-            echo "window.location = 'admin_status_event.php';"; //ไปหน้าเเรกของพนักงาน
+            echo "window.location = 'admin_status_add_event.php';"; //ไปหน้าเเรกของพนักงาน
             echo "</script>";
 
 
@@ -185,7 +185,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
 
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
+                        </li>
 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

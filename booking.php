@@ -133,13 +133,13 @@ if (!$_SESSION["UserID"]){  //check session
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
 
-                <li >
-                  <a href="#">
-                    <i class="material-icons">shopping_cart</i>
-                    ข้อมูลการจอง
-                  </a>
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
-                </li>
+                        </li>
 
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,9 +30,7 @@
     <nav class="navbar navbar-expand-lg bg-primary fixed-top " color-on-scroll="100">
         <div class="container">
             <div class="navbar-translate">
-                <a class="navbar-brand" href="index.php" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-                    MBS 
-                </a>
+<img src="_files/logo.png">
                 <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar bar1"></span>
                     <span class="navbar-toggler-bar bar2"></span>
@@ -44,34 +47,62 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="">
-                         <!--  <i class="now-ui-icons files_paper"></i> -->
-                         <p>คู่มือผู้ประกอบการ</p>
-                     </a>
-                 </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                        <a class="nav-link" href="index_mannual.php">
+                      
 
-                        <p>ติดต่อเรา</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="register.php" class="btn btn-info">
-                        สมัครสมาชิก
+                           <p>คู่มือผู้ประกอบการ</p>
+                           
+                       </a>
+                   </li>
+
+                   <li class="nav-item">
+                    <a href="index_show.php" class="btn btn-defualt">
+                        ข้อมูลการจอง
                     </a>
                 </li>
 
-                <!--login-->
-                <li class="nav-item">
-                    <a href="login.php" class="btn btn-success">
-                        เข้าสู่ระบบ
-                    </a>
+                <!-- ปุ่ม login logout -->
+                <?php
+                if (!isset($_SESSION["Role"])) {
+                    ?>
+                    <li class="nav-item">
+                        <a href="register.php" class="btn btn-info">
+                            สมัครสมาชิก
+                        </a>
+                    </li>
+
+                    <!--login-->
+                    <li class="nav-item">
+                        <a href="login.php" class="btn btn-success">
+                            เข้าสู่ระบบ
+                        </a>
+                    </li>
+                    <?php
+
+                } else {
+                    ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <p>
+                              คุณ<?php echo $_SESSION["Name"]; ?>
+                            </p>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="logout.php">ออกจากระบบ</a>
+
+                        </div>
+                    </li>
+
+                    <?php
+                }
+                ?>
+                <!-- /ปุ่ม login logout -->
 
 
-                </li>
-            </ul>
-        </div>
+            </li>
+        </ul>
     </div>
+</div>
 </nav>
 <!-- End Navbar -->
 <div class="wrapper">
@@ -85,7 +116,7 @@
                 <div class="carousel-item">
                     <img class="d-block img-fluid" src="_files/4.jpg" alt="Second slide">
                 </div>
-<!--                     <div class="carousel-item">
+<!--<div class="carousel-item">
                         <img class="d-block img-fluid" src="http://placehold.it/2880x1920" alt="Third slide">
                     </div> -->
                 </div>
@@ -112,22 +143,22 @@
 
                     include('connect.php');
                     
-$sql = "SELECT events.*,banners.* FROM events,banners
-   WHERE events.event_id = banners.event_id ORDER BY events.event_id ASC LIMIT 6";
+                    $sql = "SELECT events.*,banners.* FROM events,banners
+                    WHERE events.event_id = banners.event_id ORDER BY events.event_id DESC LIMIT 6";
 
-                       $query = mysqli_query($con,$sql);
+                    $query = mysqli_query($con,$sql);
                     while ($data = mysqli_fetch_assoc($query) ) { ?>
                         <div class="col-lg-4">
                             <div class="card h-100 text-center">
 
- 
+
 
 
 
                                 <img src="_files/_banner/<?php echo $data["name"];?>">
-       
 
-                         <!--        <img class="card-img-top" src="img/OTOP.jpg" alt=""> -->
+
+                                <!--        <img class="card-img-top" src="img/OTOP.jpg" alt=""> -->
                                 <div class="card-body">
                                     <h4 class="card-title"><?php echo "$data[ev_name]"; ?></h4>
 
@@ -136,7 +167,7 @@ $sql = "SELECT events.*,banners.* FROM events,banners
                                 </div>
                                 <div class="card-footer">
                                     <a href='detail.php?event_id=<?php echo $data["event_id"];?>' class="btn btn-primary">รายละเอียด</a>
-                                    <a href='booking.php?event_id=<?php echo $data["event_id"];?>' class='btn btn-info'> จองบูธ</a>
+                                   <a href='index_plan.php?event_id=<?php echo $data["event_id"];?>' class='btn btn-info'> จองบูธ</a>
                                 </div>
                             </div>
                         </div>

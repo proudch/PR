@@ -6,12 +6,12 @@ require 'connect.php';
 
   $Total = 0;
   $SumTotal = 0;
-
+      
 
   $sql = "
-  INSERT INTO bookings (booking_date,name,lname,tel,email,type,brandname,banner)
+  INSERT INTO bookings (booking_date,user_id,role,name,lname,tel,email,type,brandname,banner)
   VALUES
-  ('".date("Y-m-d H:i:s")."','".$_POST["name"]."','".$_POST["lname"]."' ,'".$_POST["tel"]."','".$_POST["email"]."','".$_POST["type"]."','".$_POST["brandname"]."','".$_POST["banner"]."') ";
+  ('".date("Y-m-d H:i:s")."','".$_SESSION["UserID"]."','".$_SESSION["Role"]."','".$_POST["name"]."','".$_POST["lname"]."' ,'".$_POST["tel"]."','".$_POST["email"]."','".$_POST["type"]."','".$_POST["brandname"]."','".$_POST["banner"]."') ";
   echo "$sql";
 $query = mysqli_query($con,$sql);
   if(!$query)

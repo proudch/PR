@@ -1,3 +1,7 @@
+<?php
+session_start();
+include 'connect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,25 +62,45 @@
                        </a>
                    </li>
                    <li class="nav-item">
-                    <a class="nav-link" href="">
-
-                        <p>ติดต่อเรา</p>
+                    <a href="index_show.php" class="btn btn-defualt">
+                        ข้อมูลการจอง
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="register.php" class="btn btn-info">
-                        สมัครสมาชิก
-                    </a>
-                </li>
+                <!-- ปุ่ม login logout -->
+                <?php
+                if (!isset($_SESSION["Role"])) {
+                    ?>
+                    <li class="nav-item">
+                        <a href="register.php" class="btn btn-info">
+                            สมัครสมาชิก
+                        </a>
+                    </li>
 
-                <!--login-->
-                <li class="nav-item">
-                    <a href="login.php" class="btn btn-success">
-                        เข้าสู่ระบบ
-                    </a>
+                    <!--login-->
+                    <li class="nav-item">
+                        <a href="login.php" class="btn btn-success">
+                            เข้าสู่ระบบ
+                        </a>
+                    </li>
+                    <?php
 
+                } else {
+                    ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <p>
+                              คุณ<?php echo $_SESSION["Name"]; ?>
+                            </p>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="logout.php">ออกจากระบบ</a>
 
-                </li>
+                        </div>
+                    </li>
+
+                    <?php
+                }
+                ?>
             </ul>
         </div>
     </div>
@@ -192,7 +216,7 @@
         ?> 
        <p><?php echo $data["ev_caption"];?></p>
         <input type="hidden"  name="event_id" id="event_id" value="<?php echo "$data[event_id]"; ?>">
-       <a href='booking.php?event_id=<?php echo $data["event_id"];?>' class='btn btn-info'> จองบูธ</a>
+       <a href='index_plan.php?event_id=<?php echo $data["event_id"];?>' class='btn btn-info'> จองบูธ</a>
 
    </div>
 </div>

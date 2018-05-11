@@ -19,7 +19,7 @@ if (!$_SESSION["UserID"]){  //check session
     <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>ADMIN | จอง-โซน</title>
+    <title>ADMIN | ตรวจสอบสถานะ</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
@@ -48,7 +48,7 @@ if (!$_SESSION["UserID"]){  //check session
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
+            <li>
                 <a href="admin_home.php">
                     <i class="material-icons">dashboard</i>
                     <p>หน้าแรก</p>
@@ -126,7 +126,7 @@ if (!$_SESSION["UserID"]){  //check session
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="admin_event_zone.php"> จอง-โซน</a>
+                    <a class="navbar-brand" href="admin_check_event.php"> ตรวจสอบสถานะ</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -327,7 +327,7 @@ if (!$_SESSION["UserID"]){  //check session
                                         <td><?php echo $f_row['size']; ?></td>
                                         <td><?php echo $f_row['price']; ?></td>
                                         <td><input type="hidden" name="status" value="'<?php echo $f_row['status']; ?>"'>ว่าง</td>
-                                        <td><a href="admin_edit_document.php?event_id=<?php echo $data["event_id"];?>" class="btn btn-primary">รายละเอียด</a></td>
+                                        <td><a href="admin_detail_booth.php?booth_id=<?php echo $f_row["booth_id"];?>" class="btn btn-primary">รายละเอียด</a></td>
                                         <td><a href='order.php?booth_id=<?php echo $f_row["booth_id"]; ?>' class='btn btn-success'>จอง</a></td>
 
 

@@ -48,7 +48,7 @@ if (!$_SESSION["UserID"]){  //check session
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
+            <li>
                 <a href="admin_home.php">
                     <i class="material-icons">dashboard</i>
                     <p>หน้าแรก</p>
@@ -130,7 +130,13 @@ if (!$_SESSION["UserID"]){  //check session
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
+                        </li>
 
 
                         <li class="dropdown">

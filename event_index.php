@@ -19,7 +19,7 @@ if (!$_SESSION["UserID"]){  //check session
     <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>ADMIN | หน้าแรก</title>
+    <title>ADMIN | จองบูธ</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
@@ -48,7 +48,7 @@ if (!$_SESSION["UserID"]){  //check session
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
+            <li>
                 <a href="admin_home.php">
                     <i class="material-icons">dashboard</i>
                     <p>หน้าแรก</p>
@@ -105,7 +105,7 @@ if (!$_SESSION["UserID"]){  //check session
                     <li>
                         <a href="admin_status_event.php">งานนิทรรศการ</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="event_index.php">การจอง</a>
                     </li>
 
@@ -126,12 +126,18 @@ if (!$_SESSION["UserID"]){  //check session
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost/mbs/public/admin-home"> หน้าแรก</a>
+                    <a class="navbar-brand" href="event_index.php"> จองบูธ</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
 
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
+                        </li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -169,7 +175,7 @@ if (!$_SESSION["UserID"]){  //check session
                     include('connect.php');
                     
                     $sql = "SELECT events.*,banners.* FROM events,banners
-                    WHERE events.event_id = banners.event_id ORDER BY events.event_id ASC LIMIT 6";
+                    WHERE events.event_id = banners.event_id ORDER BY events.event_id DESC LIMIT 6";
 
                     $query = mysqli_query($con,$sql);
                     while ($data = mysqli_fetch_assoc($query) ) { ?>
@@ -194,7 +200,7 @@ if (!$_SESSION["UserID"]){  //check session
 
                                                     <td>
                                                         <?php
-                                                   $sql = " SELECT COUNT(booth_id) as cnt_booth_f FROM booths, zones, events where booths.zone_id = zones.zone_id and zones.event_id = events.event_id and events.event_id = " . $data['event_id'] . " and booths.status='f'";
+                                                   $sql = " SELECT COUNT(booth_id) as cnt_booth_f FROM booths, zones, events where booths.zone_id = zones.zone_id and zones.event_id = events.event_id and events.event_id = " . $data['event_id'] . " and booths.status='p'";
                                                    $cnt_booth_f_query = mysqli_query($con,$sql);
                                                    $row_booth = mysqli_fetch_array($cnt_booth_f_query);
                                                    echo $row_booth['cnt_booth_f'];
@@ -220,7 +226,7 @@ if (!$_SESSION["UserID"]){  //check session
                                                     <th scope="row">บูธว่าง:</th>
                                                     <td>
                                                                                                                 <?php
-                                                   $sql = " SELECT COUNT(booth_id) as cnt_booth_p FROM booths, zones, events where booths.zone_id = zones.zone_id and zones.event_id = events.event_id and events.event_id = " . $data['event_id'] . " and booths.status='p'";
+                                                   $sql = " SELECT COUNT(booth_id) as cnt_booth_p FROM booths, zones, events where booths.zone_id = zones.zone_id and zones.event_id = events.event_id and events.event_id = " . $data['event_id'] . " and booths.status='f'";
                                                    $cnt_booth_p_query = mysqli_query($con,$sql);
                                                    $row_booth = mysqli_fetch_array($cnt_booth_p_query);
                                                    echo $row_booth['cnt_booth_p'];

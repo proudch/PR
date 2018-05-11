@@ -179,7 +179,13 @@ $('#myTable > tbody:last').empty(); // remove all
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
+                        </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         <i class="material-icons">person</i>
@@ -264,9 +270,9 @@ while ($data = mysqli_fetch_array($query) ) {
                                                     </table>
                                                     <br />
                                                     <center>
-                                                        <input type="button" id="createRows" class="btn btn-info" value="เพิ่มโซน">
-                                                        <input type="button" id="deleteRows" class="btn btn-warning" value="ลบโซน">
-                                                        <input type="button" id="clearRows" class="btn btn-danger" value="ล้างโซน">
+                                                        <input type="button" id="createRows" class="btn btn-info" value="เพิ่มบูธ">
+                                                        <input type="button" id="deleteRows" class="btn btn-warning" value="ลบบูธ">
+                                                        <input type="button" id="clearRows" class="btn btn-danger" value="ล้างบูธ">
                                                     </center>
                                                     <center>
                                                         <br>

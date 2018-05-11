@@ -14,22 +14,25 @@ $_SESSION['message'] = ''; /*เเสดงข้อความ Error*/
 include_once 'connect.php';
 
 
-  $name =$_POST["name"];
-
-
-
-
+  $name = $_POST["name"];
+  $tel = $_POST["tel"];
+  $email = $_POST["email"];
+$address = $_POST["address"];
+$username = $_POST["username"];
+$password = $_POST["password"];
+$is_enable = $_POST["is_enable"];
+$id = $_POST["id"];
 
     $sql = "UPDATE exhibitors SET 
             name = '$name' ,
-            tel = '".$_POST["tel"]."' ,
-            email = '".$_POST["email"]."' ,
-            address = '".$_POST["address"]."' ,
-            username = '".$_POST["username"]."' ,
-            password = '".$_POST["password"]."' ,
-            is_enable = '".$_POST["is_enable"]."'
+            tel = '$tel' ,
+            email = '$email' ,
+            address = '$address' ,
+            username = '$username' ,
+            password = '$password' ,
+            is_enable = '$is_enable'
 
-            WHERE id = '".$_POST["id"]."' ";
+            WHERE id = '$id' ";
 
 
 //เก็บข้อมูลลง DB

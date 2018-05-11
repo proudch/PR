@@ -85,8 +85,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
             <div class="container">
                 <div class="navbar-translate">
+                    <img src="_files/logo.png">
                     <a class="navbar-brand" href="index.php">
-                        MBS
+     
                     </a>
                     <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -110,12 +111,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                            <p>คู่มือผู้ประกอบการ</p>
                        </a>
                    </li>
-                   <li class="nav-item">
-                    <a class="nav-link" href="">
 
-                        <p>ติดต่อเรา</p>
-                    </a>
-                </li>
                 <li class="nav-item">
                     <a href="register.php" class="btn btn-info">
                         สมัครสมาชิก

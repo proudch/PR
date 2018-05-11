@@ -54,13 +54,13 @@ if(isset($_POST['username'])){
                         if($_SESSION["status"]=="y" ){
                         echo "<script>";
                         echo "alert(\"ยินดีต้อนรับ คุณ: $username\");";
-                            echo "window.location = 'exhibitor_home.php'"; //ไปหน้าเเรกของพนักงาน
+                            echo "window.location = 'index.php'"; //ไปหน้าเเรกของพนักงาน
                             echo "</script>";
                         }
                         else{
                         echo "<script>";
                         echo "alert(\" ยังไม่ได้รับการอนุมัติ\");";
-                        //echo "window.history.back()";
+                        echo "window.location = 'logout.php'";
                         echo "</script>";
                         }
                     }
@@ -107,8 +107,9 @@ if(isset($_POST['username'])){
                     <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
                         <div class="container">
                             <div class="navbar-translate">
+                                <img src="_files/logo.png">
                                 <a class="navbar-brand" href="index.php">
-                                    MBS
+                                  
                                 </a>
                                 <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -132,12 +133,7 @@ if(isset($_POST['username'])){
                                    <p>คู่มือผู้ประกอบการ</p>
                                </a>
                            </li>
-                           <li class="nav-item">
-                            <a class="nav-link" href="">
 
-                                <p>ติดต่อเรา</p>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a href="register.php" class="btn btn-info">
                                 สมัครสมาชิก

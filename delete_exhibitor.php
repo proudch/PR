@@ -1,11 +1,11 @@
 <?php
 include_once 'connect.php';
 $id = null;
-if(isset($_GET["admin_id"]))
+if(isset($_GET["exhibitor_id"]))
  {
-    $id = $_GET["admin_id"]; 
+    $id = $_GET["exhibitor_id"]; 
 } 
-    $sql = "DELETE FROM admins
+    $sql = "DELETE FROM exhibitors
 
             WHERE id = '".$id."' ";
 

@@ -178,7 +178,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
 
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
+                        </li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

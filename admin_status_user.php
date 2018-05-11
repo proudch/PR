@@ -99,8 +99,8 @@ if (!$_SESSION["UserID"]){  //check session
                             </a>
                             <ul class="dropdown-menu">
 
-                                <li>
-                                    <a href="admin_status_user.php">คำขออนุมัติผู้ประกอบการสมาชิก</a>
+                                <li class="active">
+                                    <a href="admin_status_user.php">สมาชิก</a>
                                 </li>
                                 <li>
                                     <a href="admin_status_event.php">งานนิทรรศการ</a>
@@ -126,11 +126,17 @@ if (!$_SESSION["UserID"]){  //check session
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="http://localhost/mbs/public/admin-home"> หน้าแรก</a>
+                            <a class="navbar-brand" href="admin_status_user.php"> ตรวจสอบสถานะสมาชิก</a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
+                        </li>
 
 
                                 <li class="dropdown">

@@ -205,7 +205,13 @@ $initialPreviewConfig = array();
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
+                        </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         <i class="material-icons">person</i>
@@ -273,7 +279,8 @@ $sql = "SELECT * FROM `events` WHERE event_id = '".$id."' ";
 $query = mysqli_query($con,$sql);
 $data=mysqli_fetch_array($query,MYSQLI_ASSOC);
 
-?>                                     <center>
+?>                                    
+ <center>
 
  <input type="hidden"  name="event_id" id="event_id" value="<?php echo "$data[event_id]"; ?>">
   <input type="hidden"  name="name" id="name" value=" <?php echo $_SESSION['Name']; ?>">

@@ -205,7 +205,13 @@ if ($upload <> '') {   //not select file
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a href="show.php">
+                                <i class="material-icons">shopping_cart</i>
+                                ข้อมูลการจอง
+                            </a>
 
+                        </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         <i class="material-icons">person</i>
@@ -328,16 +334,7 @@ if ($upload <> '') {   //not select file
                                     </div>
 
                                 
-                                                  <div class="row">
-                                                    <div class="col-lg-12">
-            <label>รูปภาพของงาน</label>
-                
- <input type="file" name="admin_image" id="admin_image"  />   
-           
 
-
-                                                </div>
-                                                </div>
                                     </div>
                                 <center>
 
